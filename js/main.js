@@ -1,6 +1,6 @@
 function getRandomValue(min, max) {
   if (
-    (min < 0 || max < 0)
+    (min < 0 || max < 0) ||
     (min === max)
   ) {
     return NaN;
