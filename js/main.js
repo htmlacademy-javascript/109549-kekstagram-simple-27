@@ -18,5 +18,5 @@ function isStrLengthValid(str, maxLength, minLength = 20) {
 }
 
 
-console.log(getRandomValue(4, 1));
-console.log(isStrLengthValid('12345', 4, 1))
+getRandomValue(4, 1);
+isStrLengthValid('12345', 4, 1);
