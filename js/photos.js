@@ -1,4 +1,4 @@
-import { getRandomValue } from "./utils.js";
+import { getRandomValue } from './utils.js';
 
 const PHOTOS_LENGTH = 25;
 const LIKES = {
