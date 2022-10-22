@@ -1,3 +1,3 @@
-import { getMockedPhotos, PHOTOS_LENGTH } from './mock-data.js';
+import { renderPictures } from './renderPictures.js';
 
-getMockedPhotos(PHOTOS_LENGTH);
+renderPictures();
