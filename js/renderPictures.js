@@ -1,15 +1,11 @@
-import { getMockedPhotos, PHOTOS_LENGTH } from './mock-data.js';
-
-function renderPictures () {
-  const mockedPhotosList = getMockedPhotos(PHOTOS_LENGTH);
-
+function renderPictures (photosList) {
   const picturesElement = document.querySelector('.pictures');
   const template = document.querySelector('#picture')
     .content
     .querySelector('.picture');
   const photosListFragment = document.createDocumentFragment();
 
-  mockedPhotosList.forEach((item) => {
+  photosList.forEach((item) => {
     const { url, likes, comments } = item;
     const photo = template.cloneNode(true);
 
