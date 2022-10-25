@@ -1,9 +1,8 @@
-const effectsListElement = document.querySelector('.effects__list');
 const imgPreview = document.querySelector('.img-upload__preview');
 const radioEffects = document.querySelectorAll('input[name="effect"]');
+const fieldSetffects = document.querySelector('.img-upload__effects');
 
-effectsListElement.addEventListener('click', (e) => {
-  const { target } = e;
+fieldSetffects.addEventListener('change', ({ target }) => {
   if (imgPreview.classList.length > 1) {
     const currentEffect = imgPreview.classList[1];
 
