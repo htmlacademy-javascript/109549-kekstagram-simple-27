@@ -9,13 +9,13 @@ const form = document.querySelector('.img-upload__form');
 const closeModalBtn = form.querySelector('.img-upload__cancel');
 const imgPreview = document.querySelector('.img-upload__preview');
 const templateSuccess = document.querySelector('#success')
-.content
-.querySelector('.success');
+  .content
+  .querySelector('.success');
 const successElement = templateSuccess.cloneNode(true);
 const successBtn = successElement.querySelector('.success__button');
 const templateError = document.querySelector('#error')
-.content
-.querySelector('.error');
+  .content
+  .querySelector('.error');
 const errorElement = templateError.cloneNode(true);
 const errorBtn = errorElement.querySelector('.error__button');
 
@@ -41,7 +41,7 @@ function onSuccessModalByWindowClose (e) {
 
 function onSuccessModalOpen () {
   body.append(successElement);
-  successBtn.addEventListener('click', onSuccessModalClose)
+  successBtn.addEventListener('click', onSuccessModalClose);
   document.addEventListener('keydown', onSuccessModalByESCClose);
   window.addEventListener('click', onSuccessModalByWindowClose);
 }
@@ -68,7 +68,7 @@ function onErrorModalByWindowClose (e) {
 
 function onErrorModalOpen () {
   body.append(errorElement);
-  errorBtn.addEventListener('click', onErrorModalClose)
+  errorBtn.addEventListener('click', onErrorModalClose);
   document.addEventListener('keydown', onErrorModalByESCClose);
   window.addEventListener('click', onErrorModalByWindowClose);
 }
@@ -84,16 +84,16 @@ function submit (e) {
   e.preventDefault();
 
   Api.publishPhoto(new FormData(e.target))
-  .then(() => {
-    onModalClose();
-    onModalReset();
-  })
-  .then(() => {
-    onSuccessModalOpen();
-  })
-  .catch(() => {
-    onErrorModalOpen();
-  });
+    .then(() => {
+      onModalClose();
+      onModalReset();
+    })
+    .then(() => {
+      onSuccessModalOpen();
+    })
+    .catch(() => {
+      onErrorModalOpen();
+    });
 }
 
 function onModalOpen () {

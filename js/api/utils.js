@@ -1,11 +1,11 @@
 export function request(address, params) {
   return fetch(address, params)
-    .then(response => {
+    .then((response) => {
       if (response.ok) {
         return response;
       }
 
       throw new Error(`${response.status} — ${response.statusText}`);
     })
-    .then(data => data.json());
+    .then((data) => data.json());
 }
