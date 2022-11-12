@@ -1,10 +1,10 @@
-const imgPreview = document.querySelector('.img-upload__preview');
+const imgPreview = document.querySelector('#upload-img');
 const radioEffects = document.querySelectorAll('input[name="effect"]');
-const fieldSetffects = document.querySelector('.img-upload__effects');
+const fieldSetEffects = document.querySelector('.img-upload__effects');
 
-fieldSetffects.addEventListener('change', ({ target }) => {
-  if (imgPreview.classList.length > 1) {
-    const currentEffect = imgPreview.classList[1];
+fieldSetEffects.addEventListener('change', ({ target }) => {
+  if (imgPreview.classList.length > 0) {
+    const currentEffect = imgPreview.classList[0];
 
     imgPreview.classList.remove(currentEffect);
   }

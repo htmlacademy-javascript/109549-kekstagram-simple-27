@@ -7,7 +7,7 @@ const imgUploadElement = document.querySelector('.img-upload__overlay');
 const body = document.querySelector('body');
 const form = document.querySelector('.img-upload__form');
 const closeModalBtn = form.querySelector('.img-upload__cancel');
-const imgPreview = document.querySelector('.img-upload__preview');
+const imgPreview = document.querySelector('#upload-img');
 const templateSuccess = document.querySelector('#success')
   .content
   .querySelector('.success');
@@ -18,6 +18,7 @@ const templateError = document.querySelector('#error')
   .querySelector('.error');
 const errorElement = templateError.cloneNode(true);
 const errorBtn = errorElement.querySelector('.error__button');
+const sliderElement = document.querySelector('.effect-level__slider');
 
 function onSuccessModalClose () {
   successElement.remove();
@@ -97,9 +98,7 @@ function submit (e) {
 }
 
 function onModalOpen () {
-  imgUploadElement.classList.remove('hidden');
-  body.classList.add('modal-open');
-
+  sliderElement.style.display = 'none';
   formCloseButton.addEventListener('click', onModalClose);
   form.addEventListener('submit', submit);
   document.addEventListener('keydown', onModalByESCClose);
@@ -122,3 +121,7 @@ function onModalByESCClose(e) {
 }
 
 uploadInput.addEventListener('click', onModalOpen);
+uploadInput.addEventListener('change', () => {
+  imgUploadElement.classList.remove('hidden');
+  body.classList.add('modal-open');
+});

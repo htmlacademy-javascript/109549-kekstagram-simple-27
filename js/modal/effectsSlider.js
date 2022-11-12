@@ -27,19 +27,19 @@ const VALUE_HANDLERS_MAP = {
 
 const sliderElement = document.querySelector('.effect-level__slider');
 const effectValueElement = document.querySelector('.effect-level__value');
-const immageUploadElement = document.querySelector('.img-upload__effects');
-const imgPreview = document.querySelector('.img-upload__preview');
+const imageUploadElement = document.querySelector('.img-upload__effects');
+const imgPreview = document.querySelector('#upload-img');
 
 noUiSlider.create(sliderElement, {
   range: {
     min: 0,
     max: 100,
   },
-  start: 80,
+  start: 0,
   connect: 'lower',
 });
 
-sliderElement.noUiSlider.on('update', () => {
+sliderElement.noUiSlider?.on('update', () => {
   const checkedEffect = document.querySelector('input[name="effect"]:checked');
   const checkedValue = checkedEffect?.value;
   const isNoneEffect = checkedValue === EFFECTS_MAP.NONE;
@@ -48,6 +48,7 @@ sliderElement.noUiSlider.on('update', () => {
     sliderElement.setAttribute('disabled', true);
   } else {
     sliderElement.removeAttribute('disabled');
+    sliderElement.style.display = 'block';
   }
 
   const sliderValue = sliderElement.noUiSlider.get();
@@ -55,14 +56,16 @@ sliderElement.noUiSlider.on('update', () => {
   const newValue = isNoneEffect ? '' : sliderValue;
 
   effectValueElement.value = newValue;
-  imgPreview.style.filter = `${FILTERS_TYPES_MAP[checkedValue]}(${valueHandler(newValue)})`;
+  imgPreview.style.filter = isNoneEffect ? 'none' : `${FILTERS_TYPES_MAP[checkedValue]}(${valueHandler(newValue)})`;
 });
 
-immageUploadElement.addEventListener('change', (e) => {
+imageUploadElement.addEventListener('change', (e) => {
   const { target } = e;
+
   if (target?.value === EFFECTS_MAP.NONE) {
-    sliderElement.noUiSlider.set(80);
     sliderElement.setAttribute('disabled', true);
+    sliderElement.style.display = 'none';
+    imgPreview.style.filter = 'none';
     effectValueElement.value = '';
   }
 
