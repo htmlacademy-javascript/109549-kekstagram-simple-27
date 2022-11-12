@@ -7,7 +7,7 @@ const STEP = 25;
 const plusButton = document.querySelector('.scale__control--bigger');
 const minusButton = document.querySelector('.scale__control--smaller');
 const input = document.querySelector('input[name="scale"]');
-const imgPreview = document.querySelector('.img-upload__preview');
+const imgPreview = document.querySelector('#upload-img');
 
 plusButton.addEventListener('click', () => {
   const currentValue = input.value;
