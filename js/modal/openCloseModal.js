@@ -19,6 +19,7 @@ const templateError = document.querySelector('#error')
 const errorElement = templateError.cloneNode(true);
 const errorBtn = errorElement.querySelector('.error__button');
 const sliderElement = document.querySelector('.effect-level__slider');
+const uploadButton = document.querySelector('.img-upload__submit');
 
 function onSuccessModalClose () {
   successElement.remove();
@@ -84,7 +85,11 @@ function onModalReset () {
 function submit (e) {
   e.preventDefault();
 
-  Api.publishPhoto(new FormData(e.target))
+  const formData = new FormData(e.target);
+
+  uploadButton.disabled = true;
+
+  Api.publishPhoto(formData)
     .then(() => {
       onModalClose();
       onModalReset();
